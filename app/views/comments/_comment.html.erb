@@ -1,7 +1,12 @@
 
 <p>
   <strong>Commenter:</strong>
+  
+  <%if comment.user%>
+  <%=comment.user.email%>
+  <%else%>
   <%= comment.commenter %>
+  <%end%>
 </p>
  
 <p>

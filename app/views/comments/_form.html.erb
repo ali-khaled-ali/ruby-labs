@@ -1,7 +1,9 @@
 <%= form_with(model: [ @article, @article.comments.build ], local: true) do |form| %>
   <p>
+    <%unless user_signed_in?%>
     <%= form.label :commenter %><br>
     <%= form.text_field :commenter %>
+    <%end%>
   </p>
   <p>
     <%= form.label :body %><br>
