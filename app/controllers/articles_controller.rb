@@ -1,12 +1,13 @@
 class ArticlesController < ApplicationController
+
+
     def index
         @articles = Article.all
-        render :json => @articles
     end
     
     def show
         @article = Article.find(params[:id])
-        render :json => @article
+        
     end
 
     def edit
@@ -17,6 +18,9 @@ class ArticlesController < ApplicationController
         @article = Article.new
     end
     def create
+
+      puts "#{params}+ this is my params"
+
       @article = Article.new(article_params.merge(user_id: current_user.id))
 
       if @article.save
@@ -47,4 +51,7 @@ class ArticlesController < ApplicationController
     def article_params
       params.require(:article).permit(:title, :text)
     end
+
+   
+
   end
